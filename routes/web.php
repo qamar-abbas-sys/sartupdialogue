@@ -7,6 +7,8 @@ use App\Http\Controllers\AdminController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\SettingController;
+use App\Http\Controllers\Welcome;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -21,8 +23,8 @@ use App\Http\Controllers\SettingController;
 // Route::get('/', function(){
 //     return view('welcome');
 // });
-
-Route::get('/',[HomeController::class,'index']);
+Route::get('/',[Welcome::class,'index']);
+Route::get('home',[HomeController::class,'index']);
 Route::get('/detail/{slug}/{id}',[HomeController::class,'detail']);
 Route::get('/all-categories',[HomeController::class,'all_category']);
 Route::get('/category/{slug}/{id}',[HomeController::class,'category']);

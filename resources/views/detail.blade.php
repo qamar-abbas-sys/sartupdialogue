@@ -1,3 +1,5 @@
+
+
 @extends('frontlayout')
 @section('title',$detail->title)
 @section('content')
@@ -11,7 +13,10 @@
 						{{$detail->title}}
 						<span class="float-right">Total Views={{$detail->views}}</span>
 					</h5>
-					<img src="{{asset('imgs/full/'.$detail->full_img)}}" class="card-img-top" alt="{{$detail->title}}">
+					<video width="320" height="240" controls>
+					<source src="{{asset('imgs/full/'.$detail->full_img)}}" type="video/mp4">
+					Your browser does not support the video tag.
+					</video>
 					<div class="card-body">
 						{{$detail->detail}}
 					</div>
@@ -20,9 +25,13 @@
 					</div>
 				</div>
 				@auth
+			
+
 				<!-- Add Comment -->
 				<div class="card my-5">
 					<h5 class="card-header">Add Comment</h5>
+					
+						
 					<div class="card-body">
 						<form method="post" action="{{url('save-comment/'.Str::slug($detail->title).'/'.$detail->id)}}">
 						@csrf
